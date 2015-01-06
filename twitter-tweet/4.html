@@ -1,0 +1,43 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+<head>
+<meta charset="utf-8">
+<title>CodeGrid Twitter Button Test</title>
+<style>
+div {
+  padding: 0 0 20px;
+}
+</style>
+</head>
+<body>
+
+<div>
+  <button id="adder">ボタン追加</button>
+  <button id="tweetify">ツイートボタン化</button>
+</div>
+
+<a
+  href="https://twitter.com/share"
+  class="twitter-share-button"
+  data-via="codegrid"
+>
+  Tweet
+</a>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+$(function() {
+  var $body = $('body');
+  var src = '<a href="https://twitter.com/share" class="twitter-share-button" data-via="codegrid">Tweet</a> ';
+  $('#adder').click(function() {
+    $body.append(src);
+  });
+  $('#tweetify').click(function() {
+    window.twttr.widgets.load();
+  });
+});
+</script>
+
+</body>
+</html>

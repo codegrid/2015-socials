@@ -1,0 +1,27 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+<head>
+<meta charset="utf-8">
+<title>CodeGrid Twitter Button Test</title>
+</head>
+<body>
+
+<div id="button"></div>
+<script src="http://platform.twitter.com/widgets.js"></script>
+<script>
+twttr.ready(function() {
+  twttr.widgets.createShareButton(
+    'https://app.codegrid.net/',
+    document.getElementById('button'),
+    {
+      lang: 'ja',
+      text: 'Welcome to CodeGrid!!'
+    }
+  ).then(function (el) {
+    console.log("Button created.")
+  });
+});
+</script>
+
+</body>
+</html>
