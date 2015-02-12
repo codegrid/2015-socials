@@ -21,34 +21,20 @@ body {
 <script src="../libs/eveeve.min.js"></script>
 <script src="../libs/jquery-1.11.2.min.js"></script>
 <script src="../libs/jquery.winenterwatcher.min.js"></script>
-<script src="../libs/jquery.socialthings.min.js"></script>
-
-<!-- Like Buttonのテンプレ -->
-<script type="text/x-htmlsrc" id="likeButtonSrc">
-<div><div
-  class="fb-like"
-  data-href="http://example.com"
-  data-send="false"
-  data-layout="button_count"
-  data-width="118"
-  data-show-faces="true"
-></div></div>
-</script>
-
 <script>
 // Facebook SDKを待機
 window.fbAsyncInit = function() {
   $(function() {
   
     // Like Buttonのソースを準備
-    var src = $('#likeButtonSrc').html();
+    var src = '<div><div class="fb-like" data-href="http://example.com" data-send="false" data-layout="button_count" data-width="118" data-show-faces="true"></div></div>';
     
     // 各アイテムについて処理
     $('.item').each(function(i, el) {
     
       var $el = $(el);
       
-      // 要素を監視
+      // 要素を監視するWinEnterWatcherのインスタンス作成
       var watcher = new $.WinEnterWatcher(el);
       
       watcher.on('enter', function() { // 要素がページに入ったら
@@ -56,7 +42,7 @@ window.fbAsyncInit = function() {
         FB.XFBML.parse(el); // Like Button化
         watcher.destroy(); // 監視終了
       });
-      watcher.start();
+      watcher.start(); // 監視開始
       
     });
   });
